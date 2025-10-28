@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'cpu_board.dart';
@@ -35,7 +36,7 @@ class _App extends StatelessWidget {
     final width = size.width;
     final height = size.height;
 
-    if (width < requiredWidth || height < requiredHeight) {
+    if ((width < requiredWidth || height < requiredHeight) && kIsWeb) {
       return const Scaffold(
         body: Center(
           child: Text(

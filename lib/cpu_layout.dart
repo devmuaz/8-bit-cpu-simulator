@@ -1,4 +1,7 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'core/control_signal.dart';
 import 'ui/editor/code_editor.dart';
@@ -329,6 +332,8 @@ class CPULayout extends StatelessWidget {
                           color: Colors.red,
                           isConnectedToBus: true,
                         ),
+                        const SizedBox(height: spaceBetweenModules),
+                        const CreditsWidget(),
                       ],
                     ),
                     const SizedBox(width: spaceBetweenModules),
@@ -349,6 +354,62 @@ class CPULayout extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class CreditsWidget extends StatelessWidget {
+  const CreditsWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    if (!kIsWeb) return const SizedBox();
+
+    return RichText(
+      text: TextSpan(
+        style: const TextStyle(color: Colors.white60, fontSize: 12),
+        children: [
+          const TextSpan(text: 'Developed by '),
+          TextSpan(
+            text: 'AbdulMuaz',
+            style: const TextStyle(
+              color: Colors.red,
+              decoration: TextDecoration.underline,
+            ),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                launchUrl(
+                  Uri.parse('https://github.com/devmuaz'),
+                  mode: LaunchMode.externalApplication,
+                );
+              },
+          ),
+          const TextSpan(text: '\nInspired by '),
+          TextSpan(
+            text: 'Ben Eater',
+            style: const TextStyle(
+              color: Colors.red,
+              decoration: TextDecoration.underline,
+            ),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                launchUrl(
+                  Uri.parse('https://eater.net'),
+                  mode: LaunchMode.externalApplication,
+                );
+              },
+          ),
+          const TextSpan(
+            text:
+                '\n\n"Every complex system is just simple parts working\ntogether."',
+            style: TextStyle(
+              color: Colors.white38,
+              fontSize: 11,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
