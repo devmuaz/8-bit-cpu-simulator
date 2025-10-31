@@ -379,7 +379,7 @@ class CreditsWidget extends StatelessWidget {
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 launchUrl(
-                  Uri.parse('https://github.com/devmuaz'),
+                  Uri.parse('https://devmuaz.com'),
                   mode: LaunchMode.externalApplication,
                 );
               },
