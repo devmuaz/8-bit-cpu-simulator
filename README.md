@@ -120,8 +120,8 @@ The CPU supports 11 instructions with a simple format: 4-bit opcode and 4-bit op
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/devmuaz/flutter_8_bit_cpu_simulator.git
-cd flutter_8_bit_cpu_simulator
+git clone https://github.com/devmuaz/8-bit-cpu-simulator.git
+cd 8-bit-cpu-simulator
 ```
 
 2. Install dependencies:
@@ -257,4 +257,4 @@ This project is open source and available under the MIT License.
 
 ---
 
-Built with Flutter by [devmuaz](https://github.com/devmuaz)
+Built with Flutter by [devmuaz](https://devmuaz.com)
