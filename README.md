@@ -4,19 +4,39 @@ An interactive visual simulator of a simple 8-bit CPU architecture, built entire
 
 Live Demo: [cpu.devmuaz.com](https://cpu.devmuaz.com)
 
+## Preview
+<img width="1920" height="1080" alt="cpu-simulator-header" src="https://github.com/user-attachments/assets/1f744d79-4842-4df9-89d1-d3ca050948ba" />
+
+
 ## Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [CPU Architecture](#cpu-architecture)
-- [Instruction Set](#instruction-set)
-- [Getting Started](#getting-started)
-- [Writing Assembly Programs](#writing-assembly-programs)
-- [Example Programs](#example-programs)
-- [Understanding the Interface](#understanding-the-interface)
-- [Technical Details](#technical-details)
-- [Contributing](#contributing)
-- [License](#license)
+- [8-bit CPU Simulator](#8-bit-cpu-simulator)
+  - [Preview](#preview)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Features](#features)
+  - [CPU Architecture](#cpu-architecture)
+    - [Registers](#registers)
+    - [Flags](#flags)
+    - [Memory](#memory)
+    - [Bus](#bus)
+  - [Instruction Set](#instruction-set)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [System Requirements](#system-requirements)
+  - [Writing Assembly Programs](#writing-assembly-programs)
+    - [Basic Syntax](#basic-syntax)
+    - [Example Program](#example-program)
+  - [Understanding the Interface](#understanding-the-interface)
+    - [Control Panel](#control-panel)
+    - [Visual Components](#visual-components)
+  - [Technical Details](#technical-details)
+    - [Fetch-Execute Cycle](#fetch-execute-cycle)
+    - [Control Signals](#control-signals)
+    - [Microcode](#microcode)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Overview
 

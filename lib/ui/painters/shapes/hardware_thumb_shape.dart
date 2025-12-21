@@ -34,19 +34,16 @@ class HardwareThumbShape extends SliderComponentShape {
     final Canvas canvas = context.canvas;
     final double radius = enabledThumbRadius * enableAnimation.value;
 
-    // Outer metallic ring
     final outerPaint = Paint()
       ..color = Colors.grey[700]!
       ..style = PaintingStyle.fill;
     canvas.drawCircle(center, radius, outerPaint);
 
-    // Inner colored circle
     final innerPaint = Paint()
       ..color = sliderTheme.thumbColor ?? Colors.red
       ..style = PaintingStyle.fill;
     canvas.drawCircle(center, radius * 0.7, innerPaint);
 
-    // Highlight effect for 3D look
     final highlightPaint = Paint()
       ..color = Colors.white.withValues(alpha: 0.3)
       ..style = PaintingStyle.fill;
@@ -56,7 +53,6 @@ class HardwareThumbShape extends SliderComponentShape {
       highlightPaint,
     );
 
-    // Border for definition
     final borderPaint = Paint()
       ..color = Colors.black.withValues(alpha: 0.5)
       ..style = PaintingStyle.stroke

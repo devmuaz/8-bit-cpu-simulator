@@ -196,14 +196,14 @@ class _CPUBoardState extends State<CPUBoard> with TickerProviderStateMixin {
 
       case Opcode.lda:
         if (microStep == 2) {
-          // IO|MI
+          // ? IO|MI
           controlWord = ControlWord.io.hex | ControlWord.mi.hex;
           _decodeControlWord(controlWord);
           bus = operand;
           busActive = true;
           memoryAddressRegister = bus;
         } else if (microStep == 3) {
-          // RO|AI
+          // ? RO|AI
           controlWord = ControlWord.ro.hex | ControlWord.ai.hex;
           _decodeControlWord(controlWord);
           bus = ram[memoryAddressRegister];
@@ -215,21 +215,21 @@ class _CPUBoardState extends State<CPUBoard> with TickerProviderStateMixin {
 
       case Opcode.add:
         if (microStep == 2) {
-          // IO|MI
+          // ? IO|MI
           controlWord = ControlWord.io.hex | ControlWord.mi.hex;
           _decodeControlWord(controlWord);
           bus = operand;
           busActive = true;
           memoryAddressRegister = bus;
         } else if (microStep == 3) {
-          // RO|BI
+          // ? RO|BI
           controlWord = ControlWord.ro.hex | ControlWord.bi.hex;
           _decodeControlWord(controlWord);
           bus = ram[memoryAddressRegister];
           busActive = true;
           registerB = bus;
         } else if (microStep == 4) {
-          // SO|AI|FI (SO is Sum Out, also called EO)
+          // ? SO|AI|FI (SO is Sum Out, also called EO)
           controlWord =
               ControlWord.so.hex | ControlWord.ai.hex | ControlWord.fi.hex;
           _decodeControlWord(controlWord);
@@ -248,21 +248,21 @@ class _CPUBoardState extends State<CPUBoard> with TickerProviderStateMixin {
 
       case Opcode.sub:
         if (microStep == 2) {
-          // IO|MI
+          // ? IO|MI
           controlWord = ControlWord.io.hex | ControlWord.mi.hex;
           _decodeControlWord(controlWord);
           bus = operand;
           busActive = true;
           memoryAddressRegister = bus;
         } else if (microStep == 3) {
-          // RO|BI
+          // ? RO|BI
           controlWord = ControlWord.ro.hex | ControlWord.bi.hex;
           _decodeControlWord(controlWord);
           bus = ram[memoryAddressRegister];
           busActive = true;
           registerB = bus;
         } else if (microStep == 4) {
-          // SO|AI|SU|FI
+          // ? SO|AI|SU|FI
           controlWord =
               ControlWord.so.hex |
               ControlWord.ai.hex |
@@ -284,14 +284,14 @@ class _CPUBoardState extends State<CPUBoard> with TickerProviderStateMixin {
 
       case Opcode.sta:
         if (microStep == 2) {
-          // IO|MI
+          // ? IO|MI
           controlWord = ControlWord.io.hex | ControlWord.mi.hex;
           _decodeControlWord(controlWord);
           bus = operand;
           busActive = true;
           memoryAddressRegister = bus;
         } else if (microStep == 3) {
-          // AO|RI
+          // ? AO|RI
           controlWord = ControlWord.ao.hex | ControlWord.ri.hex;
           _decodeControlWord(controlWord);
           bus = registerA;
@@ -303,7 +303,7 @@ class _CPUBoardState extends State<CPUBoard> with TickerProviderStateMixin {
 
       case Opcode.ldi:
         if (microStep == 2) {
-          // IO|AI
+          // ? IO|AI
           controlWord = ControlWord.io.hex | ControlWord.ai.hex;
           _decodeControlWord(controlWord);
           bus = operand;
@@ -315,7 +315,7 @@ class _CPUBoardState extends State<CPUBoard> with TickerProviderStateMixin {
 
       case Opcode.jmp:
         if (microStep == 2) {
-          // IO|J
+          // ? IO|J
           controlWord = ControlWord.io.hex | ControlWord.j.hex;
           _decodeControlWord(controlWord);
           bus = operand;
@@ -328,7 +328,7 @@ class _CPUBoardState extends State<CPUBoard> with TickerProviderStateMixin {
       case Opcode.jc:
         if (microStep == 2) {
           if (carryFlag) {
-            // IO|J
+            // ? IO|J
             controlWord = ControlWord.io.hex | ControlWord.j.hex;
             _decodeControlWord(controlWord);
             bus = operand;
@@ -342,7 +342,7 @@ class _CPUBoardState extends State<CPUBoard> with TickerProviderStateMixin {
       case Opcode.jz:
         if (microStep == 2) {
           if (zeroFlag) {
-            // IO|J
+            // ? IO|J
             controlWord = ControlWord.io.hex | ControlWord.j.hex;
             _decodeControlWord(controlWord);
             bus = operand;
@@ -355,7 +355,7 @@ class _CPUBoardState extends State<CPUBoard> with TickerProviderStateMixin {
 
       case Opcode.out:
         if (microStep == 2) {
-          // AO|OI
+          // ? AO|OI
           controlWord = ControlWord.ao.hex | ControlWord.oi.hex;
           _decodeControlWord(controlWord);
           bus = registerA;
@@ -436,7 +436,7 @@ class _CPUBoardState extends State<CPUBoard> with TickerProviderStateMixin {
   }
 
   void _clearRam() {
-    ram = List.filled(16, 0); // 4-bit addressing (16 bytes)
+    ram = List.filled(16, 0); // * 4-bit addressing (16 bytes)
   }
 
   @override
@@ -444,11 +444,11 @@ class _CPUBoardState extends State<CPUBoard> with TickerProviderStateMixin {
     return Scaffold(
       backgroundColor: const Color(0xFF0a0a0a),
       body: CPULayout(
-        // Bus
+        // ? Bus
         bus: bus,
         busActive: busActive,
 
-        // Registers
+        // ? Registers
         registerA: registerA,
         registerB: registerB,
         instructionRegister: instructionRegister,
@@ -457,11 +457,11 @@ class _CPUBoardState extends State<CPUBoard> with TickerProviderStateMixin {
         outputRegister: outputRegister,
         sumRegister: sumRegister,
 
-        // Flags
+        // ? Flags
         carryFlag: carryFlag,
         zeroFlag: zeroFlag,
 
-        // Control signals
+        // ? Control signals
         clockHigh: clockHigh,
         haltFlag: haltFlag,
         memoryIn: memoryIn,
@@ -480,24 +480,24 @@ class _CPUBoardState extends State<CPUBoard> with TickerProviderStateMixin {
         jump: jump,
         flagsIn: flagsIn,
 
-        // RAM
+        // ? RAM
         ram: ram,
 
-        // Clock
+        // ? Clock
         isRunning: isRunning,
         clockSpeed: clockSpeed,
         manualMode: manualMode,
 
-        // Animation
+        // ? Animation
         busAnimation: busAnimation,
 
-        // Microcode step
+        // ? Microcode step
         microStep: microStep,
 
-        // Control word
+        // ? Control word
         controlWord: controlWord,
 
-        // Clock
+        // ? Clock
         onClockToggle: _onClockToggle,
         onClockSingleStep: _onClockSingleStep,
         onClockSpeedChanged: (speed) {
@@ -515,14 +515,14 @@ class _CPUBoardState extends State<CPUBoard> with TickerProviderStateMixin {
           });
         },
 
-        // RAM
+        // ? RAM
         onRamEdit: (address, value) {
           setState(() {
             ram[address] = value;
           });
         },
 
-        // CPU
+        // ? CPU
         onReset: _onReset,
         onClearControlSignals: _onClearControlSignals,
         onLoadProgram: _onLoadProgram,

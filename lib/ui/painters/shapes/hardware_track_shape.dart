@@ -34,7 +34,6 @@ class HardwareTrackShape extends RoundedRectSliderTrackShape {
       trackHeight,
     );
 
-    // Draw a recessed track background (shadow effect)
     final shadowPaint = Paint()
       ..color = Colors.black.withValues(alpha: 0.4)
       ..style = PaintingStyle.fill;
@@ -46,7 +45,6 @@ class HardwareTrackShape extends RoundedRectSliderTrackShape {
       shadowPaint,
     );
 
-    // Inactive track (right side)
     final inactivePaint = Paint()
       ..color = sliderTheme.inactiveTrackColor ?? Colors.grey
       ..style = PaintingStyle.fill;
@@ -55,7 +53,6 @@ class HardwareTrackShape extends RoundedRectSliderTrackShape {
       inactivePaint,
     );
 
-    // Active track (left side)
     final activeRect = Rect.fromLTRB(
       adjustedTrackRect.left,
       adjustedTrackRect.top,
@@ -70,7 +67,6 @@ class HardwareTrackShape extends RoundedRectSliderTrackShape {
       activePaint,
     );
 
-    // Add border to track
     final borderPaint = Paint()
       ..color = Colors.black.withValues(alpha: 0.3)
       ..style = PaintingStyle.stroke

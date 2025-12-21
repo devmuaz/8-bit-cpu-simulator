@@ -22,10 +22,6 @@ class RAMModule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // saasdasdf wefweferhrthgfh g erg adf g dfg df g
-    // asdasdewfwefwefewfew
-    // asdasd ewfwefwef
-    // asdasd ewfew wefewfewfwef
     return Container(
       width: 250,
       padding: const EdgeInsets.all(16),

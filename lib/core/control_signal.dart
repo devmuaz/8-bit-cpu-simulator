@@ -1,50 +1,50 @@
 enum ControlSignal {
-  // Halt
+  // ? Halt
   hlt('HLT'),
 
-  // Memory Address Register In
+  // ? Memory Address Register In
   mi('MI'),
 
-  // RAM In
+  // ? RAM In
   ri('RI'),
 
-  // RAM Out
+  // ? RAM Out
   ro('RO'),
 
-  // Instruction Register Out (lower 4 bits)
+  // ? Instruction Register Out (lower 4 bits)
   io('IO'),
 
-  // Instruction Register In
+  // ? Instruction Register In
   ii('II'),
 
-  // A Register In
+  // ? A Register In
   ai('AI'),
 
-  // A Register Out
+  // ? A Register Out
   ao('AO'),
 
-  // B Register In
+  // ? B Register In
   bi('BI'),
 
-  // Sum Out (ALU output)
+  // ? Sum Out (ALU output)
   so('SO'),
 
-  // Subtract mode
+  // ? Subtract mode
   su('SU'),
 
-  // Output Register In
+  // ? Output Register In
   oi('OI'),
 
-  // Program Counter Enable
+  // ? Program Counter Enable
   ce('CE'),
 
-  // Program Counter Out
+  // ? Program Counter Out
   co('CO'),
 
-  // Jump (load Program Counter)
+  // ? Jump (load Program Counter)
   j('J'),
 
-  // Flags In
+  // ? Flags In
   fi('FI');
 
   final String mnemonic;
