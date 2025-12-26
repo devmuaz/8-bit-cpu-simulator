@@ -5,7 +5,7 @@ An interactive visual simulator of a simple 8-bit CPU architecture, built entire
 Live Demo: [cpu.devmuaz.com](https://cpu.devmuaz.com)
 
 ## Preview
-<img width="1920" height="1080" alt="cpu-simulator-header" src="https://github.com/user-attachments/assets/1f744d79-4842-4df9-89d1-d3ca050948ba" />
+<img width="1455" height="914" alt="8-bit CPU Simulator" src="https://github.com/user-attachments/assets/3062b563-9934-4d44-aa33-f08776b2b823" />
 
 
 ## Table of Contents
